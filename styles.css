@@ -14,6 +14,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
 }
 
 .profile-picture {
@@ -45,4 +47,24 @@ h1 {
 
 .link:hover {
     background-color: #0056b3;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    .profile-picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .link {
+        padding: 8px;
+    }
 }
