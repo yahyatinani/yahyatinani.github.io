@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fira Code", "sans-serif";
+  --color-shirt: var(--color-red-500);
+}
