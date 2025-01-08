@@ -22,34 +22,25 @@
         class="code-background container max-w-sm blur-sm"
       ></div>
       <img
-        class="mb-8 size-48 rounded-full border-4 border-white bg-clip-border
+        class="mb-4 size-40 rounded-full border-4 border-white bg-clip-border
           duration-300 hover:scale-105"
         src="assets/pfp.webp"
         alt="Photo of me"
       />
 
       <header class="text-center">
-        <h1 class="text-xl">Yahya Tinani</h1>
-        <h2 class="mb-4 text-xl font-bold">Software Engineer</h2>
-        <p
-          class="text-sm font-bold text-[oklch(0.78_0.06_260.031)]"
-        >
-          <span class="hover:text-[oklch(0.78_0.111_260.031)]">
-            React Native
-          </span>
-          •
-          <span class="hover:text-[oklch(0.78_0.111_260.031)]">
-            React
-          </span>
+        <h1 class="text-lg">Yahya Tinani</h1>
+        <h2 id="title" class="text-xl leading-8 font-bold">
+          Software Engineer
+        </h2>
+
+        <span
+          id="tech"
+          class="text-xs font-bold text-[oklch(0.78_0.06_260.031)]
+            hover:text-[oklch(0.78_0.111_260.031)]"
+          ><br />
           <br />
-          <span class="hover:text-[oklch(0.78_0.111_260.031)]">
-            Full-Stack
-          </span>
-          •
-          <span class="hover:text-[oklch(0.78_0.111_260.031)]">
-            Mobile Apps
-          </span>
-        </p>
+        </span>
       </header>
 
       <ul
@@ -116,5 +107,70 @@
         >
       </div>
     </footer>
+
+    <script type="text/javascript">
+      const text =
+        "I Build Full-Stack & Mobile Experiences \n — Let's Connect! 💻📱";
+      const typewriter = document.getElementById("tech");
+      let i = 0;
+      let f = false;
+
+      function typeWrite() {
+        if (i < text.length) {
+          if (i === 0) {
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.innerHTML = "";
+            typewriter.innerHTML += text.charAt(i);
+            typewriter.innerHTML +=
+              '<span class="blink">|</span>';
+            typewriter.innerHTML += "<br />";
+            typewriter.innerHTML += "<br />";
+          } else if (i > 0 && !f) {
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.innerHTML += text.charAt(i);
+            typewriter.innerHTML +=
+              '<span class="blink">|</span>';
+            typewriter.innerHTML += "<br />";
+            typewriter.innerHTML += "<br />";
+          }
+
+          if (text.charAt(i) === "\n") {
+            f = true;
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.innerHTML += "<br />";
+            typewriter.innerHTML += "<br />";
+
+            typewriter.innerHTML +=
+              '<span class="blink">|</span>';
+          }
+          if (f) {
+            typewriter.removeChild(typewriter.lastChild);
+
+            typewriter.removeChild(typewriter.lastChild);
+            typewriter.innerHTML += text.charAt(i);
+            typewriter.innerHTML +=
+              '<span class="blink">|</span>';
+            typewriter.innerHTML += "<br />";
+          }
+
+          i++;
+          setTimeout(typeWrite, 80);
+        } else {
+          //    setTimeout(resetTypewriter, 300);
+        }
+      }
+
+      function resetTypewriter() {
+        typewriter.innerHTML = "";
+        i = 0;
+        typeWrite();
+      }
+      typeWrite();
+    </script>
   </body>
 </html>
