@@ -4,3 +4,30 @@
   --font-display: "DejaVu Sans Mono", "sans-serif";
   --color-shirt: var(--color-red-500);
 }
+
+/* Container for the blurred code background */
+.code-background {
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  z-index: 1;
+  overflow: hidden; /* Ensure no overflow */
+  pointer-events: none;
+}
+
+/* The pseudo-element to display code text */
+.code-background::before {
+  content: "const apiUrl = 'https://api.example.com';\nconst fetchData = async () => {\n  try {\n    const response = await fetch(apiUrl);\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error('Error fetching data:', error);\n  }\n};\n\n.fetchData();\n\n/* CSS for Layout */\n.container {\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin: 20px;\n}\n\n/* HTML Markup *lex-direction: column;\n  justify-content: center;\n  align-items: center;\n  margin: 20px;\n}\n\n/* HTML Markup */\n<div class='container'>\n  <h1>Welcome to My Portfolio</h1>\n  <p>Here i<h1>Welcome to My Portfolio</h1>\n  <p>Here is some code in the background!</p>\n<s some code in the background!</p>\n<h1>Welcome to My Portfolio</h1>\n  <p>Here is some code in the background!</p>\n<<h1>Welcome to My Portfolio</h1>\n  <p>Here is some code in the background!</p>\n<h1>Welcome to My Portfolio</h1>\n  <p>Here is some code in the background!</p>\n<</div>";
+  white-space: pre-wrap; /* Ensures line breaks */
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  /* filter: blur(8px); /* Apply blur to the code */
+  /* text-align: center; */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
