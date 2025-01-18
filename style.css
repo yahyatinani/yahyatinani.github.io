@@ -524,6 +524,9 @@
   }
 }
 @layer utilities {
+  .collapse {
+    visibility: collapse;
+  }
   .absolute {
     position: absolute;
   }
@@ -560,14 +563,32 @@
   .mt-16 {
     margin-top: calc(var(--spacing) * 16);
   }
+  .mt-24 {
+    margin-top: calc(var(--spacing) * 24);
+  }
   .mb-4 {
     margin-bottom: calc(var(--spacing) * 4);
+  }
+  .block {
+    display: block;
   }
   .flex {
     display: flex;
   }
   .grid {
     display: grid;
+  }
+  .inline {
+    display: inline;
+  }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
+  .table {
+    display: table;
   }
   .size-40 {
     width: calc(var(--spacing) * 40);
@@ -587,6 +608,15 @@
   }
   .min-w-40 {
     min-width: calc(var(--spacing) * 40);
+  }
+  .border-collapse {
+    border-collapse: collapse;
+  }
+  .transform {
+    transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
+  }
+  .resize {
+    resize: both;
   }
   .list-none {
     list-style-type: none;
@@ -642,10 +672,6 @@
     --tw-gradient-to: #cddce6;
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position,) var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
-  .to-slate-900 {
-    --tw-gradient-to: var(--color-slate-900);
-    --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position,) var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
-  }
   .to-slate-950 {
     --tw-gradient-to: var(--color-slate-950);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position,) var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
@@ -656,8 +682,14 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
+  }
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
+  }
+  .py-16 {
+    padding-block: calc(var(--spacing) * 16);
   }
   .pt-12 {
     padding-top: calc(var(--spacing) * 12);
@@ -711,6 +743,9 @@
   .text-white {
     color: var(--color-white);
   }
+  .underline {
+    text-decoration-line: underline;
+  }
   .antialiased {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -723,8 +758,12 @@
     --tw-shadow: inset 0 2px 4px 0 var(--tw-shadow-color, rgb(0,0,0,.2));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
-  .blur-sm {
-    --tw-blur: blur(var(--blur-sm));
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
+  .grayscale {
+    --tw-grayscale: grayscale(100%);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .duration-300 {
@@ -792,11 +831,6 @@
   .sm\:max-w-lg {
     @media (width >= 40rem) {
       max-width: var(--container-lg);
-    }
-  }
-  .sm\:max-w-sm {
-    @media (width >= 40rem) {
-      max-width: var(--container-sm);
     }
   }
   .sm\:place-items-center {
@@ -869,27 +903,14 @@
 .blink {
   animation: blink 0.8s infinite;
 }
-.code-background {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-  overflow: hidden;
-  pointer-events: none;
-}
-.code-background::before {
-  content: "const baseUrl = 'https://api.example.com/users'; const fetchAllUsers = async () => { try { const response = await fetch(baseUrl); const users = await response.json(); console.log('All Users:', users); } catch (error) { console.error('Error fetching all users:', error); } }; const getUserData = async (userId) => { try { const response = await fetch(`${baseUrl}/${userId}`); const user = await response.json(); console.log('User Data:', user); } catch (error) { console.error('Error fetching user data:', error); } }; const createUser = async (newUser) => { try { const response = await fetch(baseUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newUser) }); const createdUser = await response.json(); console.log('User Created:', createdUser); } catch (error) { console.error('Error creating user:', error); } }; const buttonStyles = { backgroundColor: '#28A745', color: '#FFF', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer', margin: '10px' }; const containerStyles = { display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px', backgroundColor: '#F8F9FA', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }; const markup = '<div class=\"user-container\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; background-color: #F8F9FA; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\"> <h1>User Management</h1> <button style=\"background-color: #28A745; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Fetch All Users</button> <button style=\"background-color: #007BFF; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Fetch User by ID</button> <button style=\"background-color: #FFC107; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Create New User</button> </div>';";
-  white-space: pre-wrap;
-  font-family: "Courier New", monospace;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
 @supports (-moz-orient: inline) {
   @layer base {
     *, ::before, ::after, ::backdrop {
+      --tw-rotate-x: rotateX(0);
+      --tw-rotate-y: rotateY(0);
+      --tw-rotate-z: rotateZ(0);
+      --tw-skew-x: skewX(0);
+      --tw-skew-y: skewY(0);
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-gradient-position: initial;
@@ -915,6 +936,7 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -956,6 +978,31 @@
     transform: none;
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
+}
+@property --tw-rotate-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateX(0);
+}
+@property --tw-rotate-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateY(0);
+}
+@property --tw-rotate-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: rotateZ(0);
+}
+@property --tw-skew-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewX(0);
+}
+@property --tw-skew-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: skewY(0);
 }
 @property --tw-space-y-reverse {
   syntax: "*";
@@ -1071,6 +1118,11 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
