@@ -19,30 +19,3 @@
 .blink {
   animation: blink 0.8s infinite;
 }
-
-/* Container for the blurred code background */
-.code-background {
-  position: absolute;
-  /* top: 0; */
-  /* left: 0; */
-  width: 100%;
-  height: 100%;
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-  z-index: 1;
-  overflow: hidden; /* Ensure no overflow */
-  pointer-events: none;
-}
-
-/* The pseudo-element to display code text */
-.code-background::before {
-  content: "const baseUrl = 'https://api.example.com/users'; const fetchAllUsers = async () => { try { const response = await fetch(baseUrl); const users = await response.json(); console.log('All Users:', users); } catch (error) { console.error('Error fetching all users:', error); } }; const getUserData = async (userId) => { try { const response = await fetch(`${baseUrl}/${userId}`); const user = await response.json(); console.log('User Data:', user); } catch (error) { console.error('Error fetching user data:', error); } }; const createUser = async (newUser) => { try { const response = await fetch(baseUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(newUser) }); const createdUser = await response.json(); console.log('User Created:', createdUser); } catch (error) { console.error('Error creating user:', error); } }; const buttonStyles = { backgroundColor: '#28A745', color: '#FFF', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer', margin: '10px' }; const containerStyles = { display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', padding: '20px', backgroundColor: '#F8F9FA', borderRadius: '10px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }; const markup = '<div class=\"user-container\" style=\"display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; background-color: #F8F9FA; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\"> <h1>User Management</h1> <button style=\"background-color: #28A745; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Fetch All Users</button> <button style=\"background-color: #007BFF; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Fetch User by ID</button> <button style=\"background-color: #FFC107; color: #FFF; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 10px;\">Create New User</button> </div>';";
-  white-space: pre-wrap; /* Ensures line breaks */
-  font-family: "Courier New", monospace;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  /* filter: blur(8px); /* Apply blur to the code */
-  /* text-align: center; */
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-}
